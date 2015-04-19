@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="container">
+    
+    <div class="row">
+        <div class="col-md-12" style="margin-bottom:12px;padding:0;">
+        	<b>Steganography</b> is the art or practice of concealing a file, message, image, or video within another file, message, image, or video. 
+        	Steganography takes cryptography a step farther by hiding an encrypted message so that no one suspects it exists. Ideally, anyone scanning your data will fail to know it contains encrypted data.<br>
+        	This site helps you to hide text messages within Image files. You can simply upload a Image and enter the text message which has to be
+        	hidden inside that image. Further you get to download the Image which holds that text message.
+        	This site also helps you to decode that text message what was hidden within a Image. Kindly read the Instructions below and have 
+        	fun in sending people secret messages through Images and let them decode those secret messages visiting this platform.
+        </div>
+    </div>
+
+    <div class="row center-text">
+        <div class="col-md-5 well">
+        	<h4>Encode the Message</h4>
+        	<p>1. Upload the Image </p><br>
+        	<p>2. Enter the text message to be hidden </p><br>
+        	<p>3. Press Encode to start the encoding the message within Image</p><br>
+      
+        	<form action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data">
+			  	<input type="file" name="file">
+			  	<br><br>
+			  	<textarea name="message" style="width:100%;"></textarea>
+			  	<br><br>
+			    <input type="submit" name="button" value="Encode">
+			    <br>
+			</form>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-5 well">
+        	<h4>Decode the Message</h4>
+        	<p>1. Upload the Image </p><br>
+        	<p>3. Press Decode to start decoding the hidden message</p><br>
+      
+        	<form action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data">
+			  	<input type="file" name="file">
+			  	<br><br>
+			  	<br><br><br>
+			    <input type="submit" name="button" value="Decode">
+			    <br>
+			</form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="container">
+    
+    <div class="row center-text">
+        <div class="col-md-12 well">
+        	{% if FLAG == "SUCCESS" %}
+				{% if TYPE == "Encode" %}
+					<a href="{{LINK}}" target="_blank">Download the Message Hidden Image</a>
+				{% else %}
+					<p>The Hidden message in the Image is: </p>
+					<p>{{MESSAGE}}</p>
+				{% endif %}
+			{% else %}
+				<div class="error"><strong>{{FAILED_MESSAGE}}</strong></div>
+			{% endif %}
+        </div>
+    </div>
+
+    <div class="row center-text">
+        <div class="col-md-12 well">
+        	Try Again to Encode or Decode Images &nbsp;&nbsp;
+        	<a href="{{ url_for('upload_file') }}" alt="Home" class="btn btn-info"><i class=" icon-refresh icon-white"></i>Click Here</a>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
